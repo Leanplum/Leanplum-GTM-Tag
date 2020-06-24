@@ -1,3 +1,13 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: 0f505dc80a436ce92ed51d36fb222c6f8bceffb4
+   changeNotes: |2
+     What's new:
+     - In-App Messages: subscribe to the `showMessage` event for custom rendering of in-app messages.
+         See the [Web In-App messages help topic](https://docs.leanplum.com/v1/reference#web-in-app-messages) for more information.
+     - `getFileUrl` method that resolves a filename to link to the [downloadFile API](https://docs.leanplum.com/reference#get_api-action-downloadfile).
+     - `on` and `off` methods for subscribing to events
+     - `getUserId` method for getting the ID of the current user
+     What's fixed:
+     - JS error when the development socket closes due to an error (#95)
