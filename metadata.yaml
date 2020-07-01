@@ -1,6 +1,10 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: 0b79f6aeddcb607d47fd3ad675a9d5b0e8b4f590
+   changeNotes: |2
+     What's new:
+     - Call `useSessionLength()` when loading SDK to ensure sessions are deduplicated.
  - sha: 0f505dc80a436ce92ed51d36fb222c6f8bceffb4
    changeNotes: |2
      What's new:
