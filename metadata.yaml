@@ -1,6 +1,9 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: 9af670fba52317659d52aaaaec2d0511aa044604
+   changeNotes: |2
+     Update tag name and description
  - sha: 0b79f6aeddcb607d47fd3ad675a9d5b0e8b4f590
    changeNotes: |2
      What's new:
