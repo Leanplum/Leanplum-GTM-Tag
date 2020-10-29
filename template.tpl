@@ -13,8 +13,8 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "Leanplum",
-  "description": "Leanplum Customer Engagement platform for collecting data, messaging and A/B testing across web and mobile.",
+  "displayName": "Leanplum Web SDK",
+  "description": "Leanplum SDK for tracking and variable A/B testing",
   "categories": [
     "MARKETING",
     "EXPERIMENTATION",
@@ -78,6 +78,13 @@ ___TEMPLATE_PARAMETERS___
             "type": "NON_EMPTY"
           }
         ]
+      },
+      {
+        "type": "CHECKBOX",
+        "name": "enableRichInAppMessages",
+        "checkboxText": "Enable Rich In-App Messages",
+        "simpleValueType": true,
+        "help": "If enabled, rich in-app messages will be delivered to web users that match the trigger conditions of your campaigns."
       }
     ]
   },
@@ -281,13 +288,19 @@ const setInWindow = require('setInWindow');
 const callInWindow = require('callInWindow');
 const makeNumber = require('makeNumber');
 
-const LP_URL = 'https://cdn.jsdelivr.net/npm/leanplum-sdk@1.7.0/dist/leanplum.min.js';
+const LP_URL = 'https://cdn.jsdelivr.net/npm/leanplum-sdk@1.8.1/dist/leanplum.min.js';
 
 // command queue
 var queue = [
   { "name": "setAppIdForProductionMode", "args": [data.applicationKey, data.productionKey] },
   { "name": "useSessionLength", "args": [2*60*60] }
 ];
+
+if (data.enableRichInAppMessages) {
+  queue.push(
+    { "name": "enableRichInAppMessages", "args": [true] }
+  );
+}
 
 if (data.method !== "load") {
   // start a session
@@ -335,7 +348,7 @@ switch (data.method) {
 
 // global object stubs
 var lp = {};
-["setApiPath","setEmail","setNetworkTimeout","setAppIdForDevelopmentMode","setAppIdForProductionMode","setSocketHost","setDeviceId","setAppVersion","setDeviceName","setDeviceModel","setRequestBatching","setSystemName","setSystemVersion","setVariables","setVariantDebugInfoEnabled","getVariantDebugInfo","getVariables","getVariable","getVariants","inbox","on","off","onInboxAction","addStartResponseHandler","removeStartResponseHandler","addVariablesChangedHandler","removeVariablesChangedHandler","getFileUrl","forceContentUpdate","useSessionLength","start","startFromCache","stop","pauseSession","resumeSession","pauseState","resumeState","getUserId","setUserId","setUserAttributes","track","trackPurchase","advanceTo","isWebPushSupported","isWebPushSubscribed","setWebPushOptions","registerForWebPush","unregisterFromWebPush","clearUserContent","applyQueue"].forEach(function(name) {
+["setApiPath","setEmail","setNetworkTimeout","setAppIdForDevelopmentMode","setAppIdForProductionMode","setSocketHost","setDeviceId","setAppVersion","setDeviceName","setDeviceModel","setRequestBatching","setSystemName","setSystemVersion","setVariables","setVariantDebugInfoEnabled","enableRichInAppMessages","processMessageEvent","getVariantDebugInfo","getVariables","getVariable","getVariants","inbox","on","off","onInboxAction","addStartResponseHandler","removeStartResponseHandler","addVariablesChangedHandler","removeVariablesChangedHandler","getFileUrl","forceContentUpdate","useSessionLength","start","startFromCache","stop","pauseSession","resumeSession","pauseState","resumeState","getUserId","setUserId","setUserAttributes","track","trackPurchase","advanceTo","isWebPushSupported","isWebPushSubscribed","setWebPushOptions","registerForWebPush","unregisterFromWebPush","clearUserContent","applyQueue"].forEach(function(name) {
   lp[name] = function() {
     queue.push({ name: name, args: arguments });
   };
@@ -631,6 +644,25 @@ scenarios:
     assertApi('callInWindow').wasCalledWith("Leanplum.applyQueue", [
       { "name": "setAppIdForProductionMode", "args": ["app_foo", "prod_bar"] },
       { "name": "useSessionLength", "args": [2*60*60] }
+    ]);
+
+- name: Can enable rich in-app message rendering
+  code: |-
+    mock('injectScript', function(url, onSuccess, onFailure) {
+        onSuccess();
+    });
+
+    runCode({
+      applicationKey: "app_foo",
+      productionKey: "prod_bar",
+      method: "load",
+      enableRichInAppMessages: true
+    });
+
+    assertApi('callInWindow').wasCalledWith("Leanplum.applyQueue", [
+      { "name": "setAppIdForProductionMode", "args": ["app_foo", "prod_bar"] },
+      { "name": "useSessionLength", "args": [2*60*60] },
+      { "name": "enableRichInAppMessages", "args": [ true ] }
     ]);
 
 
