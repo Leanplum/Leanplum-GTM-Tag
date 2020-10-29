@@ -1,10 +1,10 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
- - sha: 9702063d37fe05013a0dbdafd5d406d31e448301
+ - sha: 96f9c856e207d8687b3a98ae358c8dddd62c4c3a
    changeNotes: |2
-     What's fixed:
-     - Rich In-App message may render under elements on the page (https://github.com/Leanplum/Leanplum-JavaScript-SDK/pull/117)
+     What's new:
+     - Rich In-App message rendering.
  - sha: 9af670fba52317659d52aaaaec2d0511aa044604
    changeNotes: |2
      Update tag name and description
