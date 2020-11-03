@@ -288,7 +288,7 @@ const setInWindow = require('setInWindow');
 const callInWindow = require('callInWindow');
 const makeNumber = require('makeNumber');
 
-const LP_URL = 'https://cdn.jsdelivr.net/npm/leanplum-sdk@1.8.1/dist/leanplum.min.js';
+const LP_URL = 'https://cdn.jsdelivr.net/npm/leanplum-sdk@1.8.2/dist/leanplum.min.js';
 
 // command queue
 var queue = [
