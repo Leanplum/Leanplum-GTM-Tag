@@ -1,6 +1,12 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: 2a0e088704a76bbc137fdcfcb8d162241ef979fe
+   changeNotes: |2
+     What's new:
+     - When triggering an `Open URL` action, there's a preventable `openUrl` event that allows integration code to handle it, instead of using `window.location` directly. (#118)
+     What's fixed:
+     - Lifetime occurrences were not counted correctly when starting new sessions. (#119)
  - sha: 96f9c856e207d8687b3a98ae358c8dddd62c4c3a
    changeNotes: |2
      What's new:
