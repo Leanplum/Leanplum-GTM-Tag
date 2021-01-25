@@ -1,6 +1,12 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: 61d8a336faf3ddd67eb0bdd21a7fca80c16f9257
+   changeNotes: |2
+     What's new:
+     - Additional data for App Inbox messages can be accessed through the `.data()` method. (#122)
+     What's fixed:
+     - Resolve deprecated API warning when rendering In-App messages. (#121)
  - sha: 2a0e088704a76bbc137fdcfcb8d162241ef979fe
    changeNotes: |2
      What's new:
