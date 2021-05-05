@@ -1,6 +1,12 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: 5606c2e642afb87e7b5f025ea87e012c6735fbfe
+   changeNotes: |2
+     What's new:
+     - The "Register for push" app function can now be used (#123, #124)
+     What's fixed:
+     - Support for chained messages created in Messaging (#128)
  - sha: 61d8a336faf3ddd67eb0bdd21a7fca80c16f9257
    changeNotes: |2
      What's new:
