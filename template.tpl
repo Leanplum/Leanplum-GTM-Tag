@@ -317,7 +317,7 @@ const setInWindow = require('setInWindow');
 const callInWindow = require('callInWindow');
 const makeNumber = require('makeNumber');
 
-const LP_URL = 'https://cdn.jsdelivr.net/npm/leanplum-sdk@1.8.4/dist/leanplum.min.js';
+const LP_URL = 'https://cdn.jsdelivr.net/npm/leanplum-sdk@1.9.0/dist/leanplum.min.js';
 
 // command queue
 var setKey = data.productionKey.indexOf("dev_") === 0 ?
@@ -388,7 +388,7 @@ switch (data.method) {
 
 // global object stubs
 var lp = {};
-["setApiPath","setEmail","setNetworkTimeout","setAppIdForDevelopmentMode","setAppIdForProductionMode","setSocketHost","setDeviceId","setAppVersion","setDeviceName","setDeviceModel","setRequestBatching","setSystemName","setSystemVersion","setVariables","setVariantDebugInfoEnabled","enableRichInAppMessages","processMessageEvent","getVariantDebugInfo","getVariables","getVariable","getVariants","inbox","on","off","onInboxAction","addStartResponseHandler","removeStartResponseHandler","addVariablesChangedHandler","removeVariablesChangedHandler","getFileUrl","forceContentUpdate","useSessionLength","start","startFromCache","stop","pauseSession","resumeSession","pauseState","resumeState","getUserId","setUserId","setUserAttributes","track","trackPurchase","advanceTo","isWebPushSupported","isWebPushSubscribed","setWebPushOptions","registerForWebPush","unregisterFromWebPush","clearUserContent","applyQueue"].forEach(function(name) {
+["setApiPath","setNetworkTimeout","setAppIdForDevelopmentMode","setAppIdForProductionMode","setSocketHost","setDeviceId","setLocale","setAppVersion","setDeviceName","setDeviceModel","setRequestBatching","setSystemName","setSystemVersion","setVariables","setVariantDebugInfoEnabled","enableRichInAppMessages","processMessageEvent","getVariantDebugInfo","getVariables","getVariable","getVariants","inbox","on","off","onInboxAction","defineAction","addStartResponseHandler","removeStartResponseHandler","addVariablesChangedHandler","removeVariablesChangedHandler","getFileUrl","forceContentUpdate","useSessionLength","start","startFromCache","stop","pauseSession","resumeSession","pauseState","resumeState","getUserId","setUserId","setUserAttributes","track","trackPurchase","advanceTo","isWebPushSupported","isWebPushSubscribed","setWebPushOptions","registerForWebPush","unregisterFromWebPush","clearUserContent","applyQueue"].forEach(function(name) {
   lp[name] = function() {
     queue.push({ name: name, args: arguments });
   };
