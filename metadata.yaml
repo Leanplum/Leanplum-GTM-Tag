@@ -1,6 +1,14 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: a2ac4c9214727aa7fda6d0404ce62d7ab98cc622
+   changeNotes: |2
+     What's new:
+     - Add the `defineAction`  method that enables development of  custom message templates. (#138)
+     - Add the `setLocale` method to allow to set a new locale (#140, thanks to @wil93)
+     What's fixed:
+     - Dev mode connection to dev server is not always correctly established (#142)
+     - The `downloadMessages` callback is sometimes called with a null value (#139, thanks to @alberto911)
  - sha: 5606c2e642afb87e7b5f025ea87e012c6735fbfe
    changeNotes: |2
      What's new:
