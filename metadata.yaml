@@ -1,6 +1,11 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: 761f7f58d4bf336ecc036345037e02fae707ae75
+   changeNotes: |2
+     ## [1.11.3](https://github.com/Leanplum/Leanplum-JavaScript-SDK/compare/1.11.2...1.11.3) (2023-08-22)
+     ### Bug Fixes
+     * allow unsubscribing multiple inbox change handlers ([c413d0b](https://github.com/Leanplum/Leanplum-JavaScript-SDK/commit/c413d0bef337cb1ae9342df9dcad829457b3e095))
  - sha: a2ac4c9214727aa7fda6d0404ce62d7ab98cc622
    changeNotes: |2
      What's new:
