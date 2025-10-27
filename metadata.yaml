@@ -1,6 +1,11 @@
 homepage: "https://www.leanplum.com"
 documentation: "https://docs.leanplum.com/docs/google-tag-manager-setup"
 versions:
+ - sha: 952fd09d623568562a046adb29c137064b9ee850
+   changeNotes: |2
+     # [1.14.0](https://github.com/Leanplum/Leanplum-JavaScript-SDK/compare/1.13.0...1.14.0) (2025-10-27)
+     ### Features
+     * upgrade the clevertap web sdk to 2.3.0 ([#190](https://github.com/Leanplum/Leanplum-JavaScript-SDK/issues/190)) ([013382e](https://github.com/Leanplum/Leanplum-JavaScript-SDK/commit/013382eb1f686776c0717abf5da19a78acf4870a)), closes [#186](https://github.com/Leanplum/Leanplum-JavaScript-SDK/issues/186) [#185](https://github.com/Leanplum/Leanplum-JavaScript-SDK/issues/185) [#189](https://github.com/Leanplum/Leanplum-JavaScript-SDK/issues/189) [#191](https://github.com/Leanplum/Leanplum-JavaScript-SDK/issues/191) [#193](https://github.com/Leanplum/Leanplum-JavaScript-SDK/issues/193) [#194](https://github.com/Leanplum/Leanplum-JavaScript-SDK/issues/194) [#195](https://github.com/Leanplum/Leanplum-JavaScript-SDK/issues/195)
  - sha: 65191e9c0be18df07e4b0805ab5d19b91acd41bd
    changeNotes: |2
      # [1.13.0](https://github.com/Leanplum/Leanplum-JavaScript-SDK/compare/1.12.0...1.13.0) (2024-09-13)
